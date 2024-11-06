@@ -4,7 +4,7 @@
 
 <details>
 <summary>
-1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya !
+1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya
 </summary>
 
 Penjelasan dari kedua jenis widget ini adalah, untuk Stateless Widget ini merupakan widget yang tidak memiliki status atau kondisi yang dapat berubah selama siklus hidupnya. Artinya, Stateless Widget bersifat statis atau tidak berubah. beda seperti Stateless widget Stateful Widget adalah widget yang dapat berubah seiring waktu atau dalam menanggapi interaksi pengguna. Stateful Widget memiliki state atau status yang dapat diubah melalui fungsi `setState()` yang disediakan oleh Flutter. Penggunaanya memungkinkan aplikasi menampilkan data dinamis atau melakukan pembaruan visual sesuai dengan perubahan yang terjadi.
@@ -52,9 +52,9 @@ Fungsi ini memiliki tujuan untuk mengatur Stateful widget, Ketika sebuah Statefu
 <summary>
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas !
 </summary>
-* Mengubah Tema Warna Aplikasi disesuaikan dengan ketentuan soal 
-* Mengubah Sifat Widget Halaman Menu Menjadi Stateless
-* Membuat Card Sederhana yang Berisi NPM, Nama, dan Kelas
-* Membuat Button Card Sederhana dengan tulisan yang di sesuaikan dengan ketentuan tugas yaitu (Lihat Daftar Produk, Tambah Produk, dan Logout)
-* Mengintegrasikan InfoCard dan ItemCard untuk Ditampilkan di root
+* Mengubah Tema Warna Aplikasi disesuaikan dengan ketentuan soal <br>
+* Mengubah Sifat Widget Halaman Menu Menjadi Stateless <br>
+* Membuat Card Sederhana yang Berisi NPM, Nama, dan Kelas <br>
+* Membuat Button Card Sederhana dengan tulisan yang di sesuaikan dengan ketentuan tugas yaitu (Lihat Daftar Produk, Tambah Produk, dan Logout) <br>
+* Mengintegrasikan InfoCard dan ItemCard untuk Ditampilkan di root <br>
 </details>
