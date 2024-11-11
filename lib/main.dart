@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ngubin App',
+      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.red,
-        ).copyWith(secondary: Colors.red[400]),
+        ).copyWith(secondary: Colors.redAccent),
         useMaterial3: true,
       ),
       home: MyHomePage(), // Assign MyHomePage to the home property

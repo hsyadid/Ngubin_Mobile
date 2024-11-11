@@ -58,3 +58,107 @@ Fungsi ini memiliki tujuan untuk mengatur Stateful widget, Ketika sebuah Statefu
 * Membuat Button Card Sederhana dengan tulisan yang di sesuaikan dengan ketentuan tugas yaitu (Lihat Daftar Produk, Tambah Produk, dan Logout) <br>
 * Mengintegrasikan InfoCard dan ItemCard untuk Ditampilkan di root <br>
 </details>
+
+## Tugas 8
+
+<details>
+<summary>
+1.Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+</summary>
+`const` digunakan untuk mendeklarasikan objek yang tidak berubah dan hanya akan dibuat sekali pada projek anda atau bisa dibilang objek yang konstan, keuntungan dari sifat seperti ini memoru yang digunakan cenderung lebih hemat dikarenakan tdiak akan di buat kietika widget di render, dan kode pun lebih mudah untuk di pelihara
+
+yang saya rasakan hal kondisi yang paling cocok untuk mengunakan `const` adalah ketika widget tidak akan berubah selama runtime, tetapi jika widget menerima sesuatu yang dinamis yang akan di ubah oleh `setState` tidak disarankan mengunakan `const`
+
+</details>
+
+<details>
+<summary>
+2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+</summary>
+Column dan juga row pada flutter digunakan untuk menyusun tata letak vertikal dan horizontal, dan dua duanya berfungsi sebagai kontainer
+
+Column di gunakan untuk menyusun elemen secara vertikal. Columnmemiliki beberapa atribut seperti `mainAxisAlignment` untuk menyusun widget di sepanjang sumbu utama (vertikal pada Column) dan `crossAxisAlignment` untuk menyusun di sepanjang sumbu silang (horizontal pada Column). contoh pengunaanya pada kode yang saya buat ini adalah :
+
+```
+Column(
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+    // Row untuk menampilkan tiga InfoCard secara horizontal.
+    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        InfoCard(title: 'NPM', content: npm),
+        InfoCard(title: 'Name', content: name),
+        InfoCard(title: 'Class', content: className),
+      ],
+    ),
+    const SizedBox(height: 16.0),
+    Center(
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Text(
+              'Welcome to Mental Health Tracker',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+              ),
+            ),
+          ),
+          // GridView widget untuk menampilkan ItemCard dalam grid.
+        ],
+      ),
+    ),
+  ],
+)
+```
+
+Row adalah widget yang digunakan untuk menyusun elemen secara horizontal, sam seperti Column widget ini juga memiliki atribut mainAxisAlignment dan crossAxisAlignment yang memungkinkan kita untuk mengontrol perataan widget di sepanjang sumbu utama (horizontal pada Row) dan sumbu silang (vertikal pada Row). contoh pengunaanya dalam kode saya adalah :
+
+```
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    InfoCard(title: 'NPM', content: npm),
+    InfoCard(title: 'Name', content: name),
+    InfoCard(title: 'Class', content: className),
+  ],
+)
+```
+
+Dapat disimpulkan Column dan Row adalah widget tata letak utama di Flutter yang berfungsi untuk menyusun elemen-elemen secara berurutan, namun dengan orientasi yang berbeda. Column menyusun elemen-elemen secara vertikal dari atas ke bawah, sedangkan Row menyusun elemen-elemen secara horizontal dari kiri ke kanan. Kedua widget ini dilengkapi dengan properti mainAxisAlignment dan crossAxisAlignment yang membantu mengatur posisi elemen di dalamnya, namun dengan orientasi sumbu yang berbeda: sumbu utama Column adalah vertikal, sedangkan pada Row sumbu utamanya adalah horizontal. Penggunaan Column lebih cocok untuk tata letak bertumpuk seperti daftar item atau konten multi-baris, yang membutuhkan susunan vertikal. Sebaliknya, Row ideal untuk menyusun elemen-elemen secara sejajar dalam satu baris, seperti kumpulan ikon atau informasi yang ditempatkan bersebelahan.
+
+</details>
+
+<details>
+<summary>
+3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+</summary>
+
+Pada tugas kali ini saya mengunakan `TextFormField` dan `ElevatedButton`. `TextFormField` digunakan sebagai elemen input untuk menerima teks dan angka dalam berbagai bagian form, seperti name, amount, dan description. Setiap `TextFormField` dilengkapi dengan properti validator yang memungkinkan adanya validasi untuk setiap input. Misalnya, pada input name, `TextFormField` divalidasi agar tidak kosong, memiliki minimal tiga karakter, dan tidak melebihi 50 karakter. Pada input amount, TextFormField ini juga divalidasi agar tidak kosong, hanya menerima angka, dan memastikan bahwa angka tersebut positif. Input description juga memanfaatkan `TextFormField`, dengan validasi agar tidak kosong serta memiliki panjang minimal 10 karakter dan maksimal 200 karakter, untuk memastikan input deskripsi yang cukup informatif namun tidak berlebihan.
+
+Ada beberapa elemet input yang tidak saya gunakan, beberapa nya adalah DropdownButton, Checkbox, Radio, Switch, dan Slider. saya tidak mengunakan beberapa elemen input ini didasarkan oelh kebutuhan pada aplikasi saya karena kita ambil contoh DropdownButton, DropdownButton biasanya digunakan untuk memilih satu opsi dari daftar pilihan
+
+</details>
+
+<details>
+<summary>
+4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+</summary>
+
+Tema diatur mengunakan `Theme.of(context).colorScheme.primary` untuk menjaga konsistensi warna utama di berbagai elemen, seperti pada AppBar dan tombol Save di halaman form. Tema utama aplikasi diatur untuk menggunakan warna merah sebagai primary color, yang kemudian diterapkan di seluruh widget sesuai dengan konteks tema.
+
+dengan mengunakan theme ini aplikasi bisa secara otomatis menyesuaikan warna sesuai skema yang di tetapkan. dan pada aplikasi yang saya buat ini saya mengimplementasikanya pada berkas `menu.dart`
+
+</details>
+
+<details>
+<summary>
+5.  Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+
+</summary>
+
+`Navigator` adalah kelas pada flutter yang membantu untuk menevagasi banyak halaman dengan konsep stack yang mana annti halaman di tambahkan kedalam stack ini. terdapat 2 metode utama dalam kelas ini yaitu `Navigator.push` untuk menambahkan halaman baru ke atas tumpukan dan mengarahkan pengguna ke halaman tersebut dan `Navigator.pop ` yang digunakan untuk menghapus halaman saat ini dari tumpukan dan kembali ke halaman sebelumnya.
+
+</details>
