@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ngubin/menu.dart';
+import 'package:ngubin/screen/menu.dart';
 import 'package:ngubin/screen/productEntry_form.dart';
 
 class LeftDrawer extends StatelessWidget {
@@ -17,7 +17,7 @@ class LeftDrawer extends StatelessWidget {
             child: const Column(
               children: [
                 Text(
-                  'Mental Health Tracker',
+                  'Ngubin apps',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 24,
