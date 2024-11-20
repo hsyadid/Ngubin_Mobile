@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ngubin/screen/menu.dart';
 import 'package:ngubin/screen/productEntry_form.dart';
+import 'package:ngubin/screen/list_product.dart'; // Add this line to import ProductPage
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -27,7 +28,7 @@ class LeftDrawer extends StatelessWidget {
                 ),
                 Padding(padding: EdgeInsets.all(8)),
                 Text(
-                  "Ayo jaga kesehatan mentalmu setiap hari disini!",
+                  "Yuk berbelanja Ubin disini dengan mudah",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -52,7 +53,7 @@ class LeftDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.mood),
-            title: const Text('Tambah Mood'),
+            title: const Text('Tambah produk'),
             // Bagian redirection ke ProductForm
             onTap: () {
               Navigator.pushReplacement(
@@ -60,6 +61,17 @@ class LeftDrawer extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => ProductForm(),
                   ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Daftar produk'),
+            onTap: () {
+              // Route menu ke halaman mood
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductPage()),
+              );
             },
           ),
         ],

@@ -162,3 +162,86 @@ dengan mengunakan theme ini aplikasi bisa secara otomatis menyesuaikan warna ses
 `Navigator` adalah kelas pada flutter yang membantu untuk menevagasi banyak halaman dengan konsep stack yang mana annti halaman di tambahkan kedalam stack ini. terdapat 2 metode utama dalam kelas ini yaitu `Navigator.push` untuk menambahkan halaman baru ke atas tumpukan dan mengarahkan pengguna ke halaman tersebut dan `Navigator.pop ` yang digunakan untuk menghapus halaman saat ini dari tumpukan dan kembali ke halaman sebelumnya.
 
 </details>
+
+## Tugas 9
+
+<details>
+<summary>
+1. Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
+</summary>
+Model berfungsi sebagai representasi struktur data dalam aplikasi, sehingga saat melakukan pengambilan atau pengiriman data JSON, model memudahkan pemetaan data tersebut ke dalam objek yang lebih terorganisir. Dengan model, akses dan manipulasi data menjadi lebih mudah, serta validasi data lebih terjamin. Tanpa model, data akan tetap bisa diolah, tetapi dalam bentuk JSON mentah, yang meningkatkan kompleksitas dan risiko error saat pengolahan data.
+</details>
+
+<details>
+<summary>
+2.  Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini !
+</summary>
+Library `http` digunakan untuk mengirim permintaan HTTP dari Flutter ke server Django.
+GET: Untuk mengambil data dari server, seperti daftar produk yang sesuai dengan user tertentu.
+POST: Untuk mengirim data baru ke server, seperti menambahkan produk baru.
+Library ini memfasilitasi komunikasi antara frontend (Flutter) dan backend (Django).
+</details>
+
+<details>
+<summary>
+3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter !
+</summary>
+`CookieRequest` digunakan untuk menyimpan sesi user, memungkinkan aplikasi mengenali dan mempertahankan status login user. Dengan `CookieRequest`, user tidak perlu login ulang selama sesi berjalan. Dibagikan ke semua komponen di Flutter untuk memastikan pengelolaan cookie konsisten di seluruh aplikasi.
+</details>
+
+<details>
+<summary>
+4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter !
+</summary>
+* User mengisi data melalui UI di Flutter, seperti form input.
+* Data tersebut dikirim ke server menggunakan HTTP request (contoh: POST).
+* Server Django menerima data, memprosesnya (seperti menyimpan ke database atau melakukan validasi), lalu mengembalikan respons dalam format JSON.
+* Flutter menerima respons tersebut, mengubahnya menjadi model yang sesuai, dan menampilkan datanya di UI.
+
+</details>
+
+<details>
+<summary>
+5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter !
+</summary>
+* `Login`: User mengisi data akun di Flutter, lalu Flutter mengirim permintaan HTTP ke server Django untuk validasi. Jika valid, server mengembalikan cookie untuk memulai sesi user.
+* `Register`: Data akun baru dikirim dari Flutter ke Django untuk membuat akun di server. Setelah akun dibuat, user diarahkan ke halaman login.
+* `Logout`: Flutter menghapus cookie dan mengakhiri sesi dengan mengirim permintaan ke server Django, lalu user diarahkan kembali ke halaman login.
+
+</details>
+
+<summary>
+6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial) !
+</summary>
+1. Persiapan Django:
+
+Membuat app authentication untuk menangani login, register, dan logout, serta menambahkannya ke INSTALLED_APPS.
+Menginstal library django-cors-headers untuk mengizinkan akses dari Flutter.
+Menambahkan fungsi login, register, dan logout di views.py, serta mendefinisikan rutenya di urls.py.
+
+2. Persiapan Flutter:
+
+Menginstal paket provider dan pbp_django_auth untuk autentikasi.
+Membuat halaman login dan register, serta mengatur halaman awal aplikasi menjadi halaman login.
+
+3. Membuat Model Kustom:
+
+Menggunakan Quicktype untuk membuat model yang sesuai dengan data JSON dari Django.
+Menambahkan model ini ke folder models di Flutter.
+
+4. Membuat Halaman Katalog Barang:
+
+Membuat halaman daftar barang (list_product.dart) untuk menampilkan data dari JSON.
+Mengintegrasikan katalog ke sidebar (left_drawer.dart) dan halaman utama.
+
+5. Membuat Halaman Detail Barang:
+
+Membuat halaman baru untuk menampilkan detail barang, termasuk semua atributnya.
+Menghubungkan katalog dengan halaman detail melalui navigasi saat item diklik.
+
+6. Filter Barang Berdasarkan User:
+
+Menambahkan fungsi di Django untuk mengambil data yang sesuai dengan user yang login.
+Mengubah URL permintaan di Flutter agar hanya mengambil data user yang login.
+
+</details>
